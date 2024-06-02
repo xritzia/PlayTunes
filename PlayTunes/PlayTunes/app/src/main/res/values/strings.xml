@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PlayTunes</string>
+    <string name="pickSong">Pick a Song</string>
+    <string name="skipBack">Back 10s</string>
+    <string name="skipForward">Skip 10s</string>
+    <string name="replaySong">Replay</string>
+    <string name="playPause">Play/Pause</string>
+    <string name="volUp">Volume ++</string>
+    <string name="volDown">Volume --</string>
+    <string name="vinylRecord">Vinyl Record</string>
+</resources>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Vinyl Record -->
+    <ImageView
+        android:id="@+id/vinylRecord"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/vinylRecord"
+        android:src="@drawable/vinyl_record"
+        app:layout_constraintBottom_toTopOf="@+id/songNameTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.70" />
+
+    <!-- Song Name -->
+    <TextView
+        android:id="@+id/songNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Song Button -->
+    <ImageButton
+        android:id="@+id/songButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="75dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_click_effect"
+        android:contentDescription="@string/pickSong"
+        android:onClick="pickAudio"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/backButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/music"
+        tools:ignore="ImageContrastCheck" />
+
+    <!-- Replay Button -->
+    <ImageButton
+        android:id="@+id/replayButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="75dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_click_effect"
+        android:contentDescription="@string/replaySong"
+        android:onClick="replayAudio"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/skipButton"
+        app:srcCompat="@drawable/repeat"
+        tools:ignore="ImageContrastCheck" />
+
+    <!-- Play Button -->
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="70dp"
+        android:layout_weight="1"
+        android:background="@color/transparent"
+        android:contentDescription="@string/playPause"
+        android:onClick="playAudio"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/skipButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:srcCompat="@drawable/play"
+        tools:ignore="ImageContrastCheck" />
+
+    <!-- Skip Forward Button -->
+    <ImageButton
+        android:id="@+id/skipButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="75dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_click_effect"
+        android:contentDescription="@string/skipForward"
+        android:onClick="skipForward"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/replayButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playButton"
+        app:srcCompat="@drawable/skip"
+        tools:ignore="ImageContrastCheck" />
+
+    <!-- Backwards Button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="75dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_click_effect"
+        android:contentDescription="@string/skipBack"
+        android:onClick="skipBackward"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/playButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/songButton"
+        app:srcCompat="@drawable/back"
+        tools:ignore="ImageContrastCheck" />
+
+    <!-- SeekSong Table -->
+    <TableLayout
+        android:id="@+id/seekSongTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/playButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SeekBar
+                android:id="@+id/seekSong"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginEnd="33dp"
+                android:layout_weight="1"
+                android:progressTint="@color/blue25"
+                android:scaleY="1.5"
+                android:thumb="@drawable/seekbar_thumb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- Current Time -->
+            <TextView
+                android:id="@+id/timeCurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_weight="1"
+                android:gravity="start|center_vertical"
+                android:paddingStart="11dp"
+                android:textSize="20sp"
+                tools:ignore="RtlSymmetry" />
+
+            <!-- Total Time -->
+            <TextView
+                android:id="@+id/timeTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_weight="1"
+                android:gravity="end|center_vertical"
+                android:paddingEnd="11dp"
+                android:textSize="20sp"
+                tools:ignore="RtlSymmetry" />
+        </TableRow>
+    </TableLayout>
+
+
+    <!-- SeekVolume Table -->
+    <TableLayout
+        android:id="@+id/seekVolumeTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/seekSongTable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SeekBar
+                android:id="@+id/seekVolume"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginEnd="33dp"
+                android:layout_weight="1"
+                android:progressTint="@color/blue25"
+                android:scaleY="1.5"
+                android:thumb="@drawable/seekbar_thumb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp">
+
+            <!-- Volume Down icon and Current Volume textview-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:orientation="horizontal"
+                android:paddingStart="35dp"
+                tools:ignore="RtlSymmetry">
+
+                <ImageButton
+                    android:id="@+id/volumeDown"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/volDown"
+                    android:padding="12dp"
+                    android:scaleType="centerCrop"
+                    android:scaleX="-1"
+                    android:src="@drawable/volume_down"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/volumeCurrent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <!-- Volume Up icon and Max Volume textview -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:paddingEnd="35dp"
+                tools:ignore="RtlSymmetry">
+
+                <TextView
+                    android:id="@+id/volumeMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/volumeUp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/volUp"
+                    android:padding="12dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/volume_up"
+                    tools:ignore="ImageContrastCheck" />
+            </LinearLayout>
+
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
